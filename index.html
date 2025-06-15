@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Father's Day Scroll Animation</title>
+  <title>Happy Father's Day ❤️</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fce3ec, #fff6f0);
       overflow-x: hidden;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-top: 50px;
+      color: #ff5e7e;
+    }
+
+    p.wish {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      color: #555;
     }
 
     .section {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease-out;
+      padding: 40px;
     }
 
     .section.visible {
@@ -33,25 +50,24 @@
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
-
-    h1 {
-      position: fixed;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      font-size: 2.5rem;
-      color: #ff758c;
-    }
   </style>
 </head>
 <body>
 
   <h1>Happy Father's Day ❤️</h1>
+  <p class="wish">To the man who's always been my hero — I love you, Dad!</p>
 
-  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+1" alt="Pic 1"></div>
-  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+2" alt="Pic 2"></div>
-  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+3" alt="Pic 3"></div>
-  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+4" alt="Pic 4"></div>
+  <div class="section">
+    <img src="https://images.unsplash.com/photo-1620931838892-dfc5ec9fe3f1?auto=format&fit=crop&w=1000&q=80" alt="Father and child">
+  </div>
+
+  <div class="section">
+    <img src="https://images.unsplash.com/photo-1604023489742-b1aa4bbf6b67?auto=format&fit=crop&w=1000&q=80" alt="Dad with child">
+  </div>
+
+  <div class="section">
+    <img src="https://images.unsplash.com/photo-1620931838782-30dfbfa6f842?auto=format&fit=crop&w=1000&q=80" alt="Fatherhood moments">
+  </div>
 
   <script>
     const sections = document.querySelectorAll(".section");
