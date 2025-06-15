@@ -33,13 +33,6 @@
       gap: 30px;
     }
 
-    .image-item img {
-      max-width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Scroll Animation */
     .image-item {
       opacity: 0;
       transform: translateY(30px);
@@ -49,6 +42,18 @@
     .image-item.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .image-item img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
     }
 
     /* Floating Hearts */
@@ -71,7 +76,7 @@
 </head>
 <body>
 
-  <h1>Happy Father's Day! 💗</h1>
+  <h1>Happy Father's Day!</h1>
   <p>
     Thank you for your endless love, support, and guidance. I'm so grateful to have you in my life.
     Wishing you a day filled with laughter, peace, and unforgettable moments.<br><br>
