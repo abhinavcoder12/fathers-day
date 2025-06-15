@@ -2,51 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Father's Day ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Father's Day</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffeaea, #fff7f0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
       color: #333;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow-x: hidden;
     }
 
     h1 {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 2.8rem;
-      color: #ff3366;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
     p {
-      text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 40px;
-      color: #555;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
 
-    .section {
+    .image-container {
       display: flex;
-      justify-content: center;
-      margin-bottom: 50px;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
 
-    .section img {
+    .image-item img {
       max-width: 90%;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Scroll Animation */
+    .image-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .image-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      top: 100vh;
+      color: pink;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Happy Father's Day ❤️</h1>
-  <p>Thank you, Dad, for being my greatest support and best friend. I love you!</p>
+  <h1>Happy Father's Day!</h1>
+  <p>
+    Thank you for your endless love, support, and guidance. I'm so grateful to have you in my life.
+    Wishing you a day filled with laughter, peace, and unforgettable moments.<br><br>
+    Lots of love,<br>💗 Abhi
+  </p>
 
-  <div class="section">
-    <img src="pic4.jpg" alt="Dad and Me"> <!-- Replace with your uploaded image file -->
+  <div class="image-container">
+    <div class="image-item"><img src="https://i.ibb.co/RgLZXMk/20250214-185658.jpg" alt="Image 1" /></div>
+    <div class="image-item"><img src="https://i.ibb.co/9Ln9HRr/20230830-165633.jpg" alt="Image 2" /></div>
+    <div class="image-item"><img src="https://i.ibb.co/rKPKbVc/IMG-20240602-WA0021.jpg" alt="Image 3" /></div>
+    <div class="image-item"><img src="https://i.ibb.co/Hk5Z4Zm/IMG-20240602-WA0024.jpg" alt="Image 4" /></div>
+    <div class="image-item"><img src="https://i.ibb.co/9m95FWY/20240914-101325.jpg" alt="Image 5" /></div>
   </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    window.onload = () => {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (12 + Math.random() * 20) + 'px';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        heart.textContent = '💗';
+        document.body.appendChild(heart);
+      }
+    };
+  </script>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+    });
+
+    document.querySelectorAll('.image-item').forEach(item => {
+      observer.observe(item);
+    });
+  </script>
 
 </body>
 </html>
