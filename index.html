@@ -1,140 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Father's Day!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Father's Day Scroll Animation</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fce3ec, #fff6f0);
       overflow-x: hidden;
-      padding: 30px;
-      text-align: center;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
-      font-family: 'Lobster', cursive;
-      font-size: 3em;
-      background: linear-gradient(90deg, #ff758c, #ff7eb3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 8px rgba(255, 153, 204, 0.3);
-      margin-bottom: 10px;
-      animation: fadeIn 2s ease-in-out forwards;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      color: #555;
-      font-weight: 500;
-      line-height: 1.6;
-      animation: fadeIn 3s ease-in-out forwards;
-    }
-
-    .image-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .image-item {
-      width: 180px;
-      height: 180px;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      background-color: #fff;
-    }
-
-    .image-item:hover {
-      transform: scale(1.07);
-    }
-
-    .image-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @media (max-width: 600px) {
-      .image-item {
-        width: 120px;
-        height: 120px;
-      }
-
-      h1 {
-        font-size: 2.2em;
-      }
-
-      p {
-        font-size: 1em;
-      }
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Floating hearts */
-    .heart {
       position: fixed;
-      font-size: 20px;
-      color: #ff5e8e;
-      animation: floatHeart 8s infinite ease-in;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.8;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) scale(1.5);
-        opacity: 0;
-      }
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff758c;
     }
   </style>
 </head>
 <body>
 
-  <h1>Happy Father's Day!</h1>
-  <p>Thank you for your endless love, support, and guidance. I’m so grateful to have you in my life. Wishing you a day filled with laughter, peace, and unforgettable moments.<br><br>Lots of love,<br>💖 Abhi</p>
+  <h1>Happy Father's Day ❤️</h1>
 
-  <div class="image-container">
-    <div class="image-item"><img src="https://i.ibb.co/RGzLXZMx/20250214-185658.jpg" alt="Image 1"></div>
-    <div class="image-item"><img src="https://i.ibb.co/9Ln9HkR/20230830-165633.jpg" alt="Image 2"></div>
-    <div class="image-item"><img src="https://i.ibb.co/rKKPbxVC/IMG-20240602-WA0021.jpg" alt="Image 3"></div>
-    <div class="image-item"><img src="https://i.ibb.co/HDx54Zmq/IMG-20240602-WA0024.jpg" alt="Image 4"></div>
-    <div class="image-item"><img src="https://i.ibb.co/9m5FjWYK/20240914-101325.jpg" alt="Image 5"></div>
-  </div>
+  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+1" alt="Pic 1"></div>
+  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+2" alt="Pic 2"></div>
+  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+3" alt="Pic 3"></div>
+  <div class="section"><img src="https://via.placeholder.com/800x500?text=Pic+4" alt="Pic 4"></div>
 
   <script>
-    // Create floating hearts
-    window.onload = () => {
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.top = Math.random() * 100 + 'vh';
-        heart.style.fontSize = (12 + Math.random() * 20) + 'px';
-        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
-        heart.textContent = '❤️';
-        document.body.appendChild(heart);
-      }
+    const sections = document.querySelectorAll(".section");
+
+    const showOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add("visible");
+        }
+      });
     };
+
+    window.addEventListener("scroll", showOnScroll);
+    window.addEventListener("load", showOnScroll);
   </script>
 
 </body>
